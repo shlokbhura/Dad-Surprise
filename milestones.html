@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestones - Marathon Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff7e5f;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        section {
+            margin: 40px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff7e5f;
+            margin: 10px auto 0;
+        }
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted the grid for more flexibility */
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    align-items: start;
+}
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+    width: calc(100% + 2px); /* Expands the image width slightly beyond the card */
+    height: 500px; /* Keeps the height consistent */
+    object-fit: contain; /* Ensures the image fills the area proportionately */
+    border-radius: 10px; /* Adds rounded corners for aesthetics */
+    margin-left: -100px; /* Moves the image left to balance the added width */
+    margin-right: -100px; /* Moves the image right to balance the added width */
+}
+
+        .card p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Milestones - Marathon Journey</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="milestones">
+            <h2>Key Milestones - More Details</h2>
+            <div class="gallery">
+                <div class="card">
+                    <h3>First 5km</h3>
+                    <img src="5km.jpeg" alt="5km">
+                    <p>Achieved in 33 minutes!</p>
+                    <p><b>Date: 14th October, 2020</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 10km</h3>
+                    <img src="10km.jpeg" alt="10km">
+                    <p>Achieved in 1 hour 7 minutes!</p>
+                    <p><b>Date: 22nd November, 2020</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 15km</h3>
+                    <img src="15km.jpeg" alt="15km">
+                    <p>Achieved in 1 hour 42 minutes!</p>
+                    <p><b>Date: 11th October, 2020</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 21km</h3>
+                    <img src="21km.jpeg" alt="21km">
+                    <p>Completed in 2 hours 11 minutes!</p>
+                    <p><b>Date: 29th November, 2020</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 30km</h3>
+                    <img src="30km.jpeg" alt="42km">
+                    <p>Achieved in 3 hour 19 minutes!</p>
+                    <p><b>Date: 17th November, 2024</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 32km</h3>
+                    <img src="32km.jpeg" alt="32km">
+                    <p>AAchieved in 3 hour 25 minutes!</p>
+                    <p><b>Date: 1st December, 2024</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 35km</h3>
+                    <img src="35km.jpeg" alt="35km">
+                    <p>Completed in 3 hours 47 minutes!</p>
+                    <p><b>Date: 22nd December, 2024</b></p>
+                </div>
+                <div class="card">
+                    <h3>First 42km</h3>
+                    <img src="42km.jpeg" alt="42km">
+                    <p>Achieved in 4 hour 38 minutes!</p>
+                    <p><b>Date: 19th January, 2025</b></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Marathon Journey. Designed with ❤️ for Dad.</p>
+    </footer>
+</body>
+</html>

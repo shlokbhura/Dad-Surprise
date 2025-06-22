@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Marathon Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff7e5f;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff7e5f;
+            margin: 10px auto 0;
+        }
+
+        /* Updated Grid Layout for Gallery Section */
+        .gallery,
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            /* Ensures responsiveness */
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .card,
+        .video-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card:hover,
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img,
+        .video-card video {
+            width: 100%;
+            height: 200px;
+            /* Adjusted height for photos */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        .card img {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Video Gallery */
+        .video-gallery {
+            margin-top: 40px;
+        }
+
+        .video-card {
+            width: 100%;
+            height: 200px;
+            /* Set the height for the container */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Video fills the container without stretching */
+            border-radius: 10px;
+        }
+
+
+
+
+        /* Navigation Buttons */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .navigation-buttons button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #feb47b;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gallery - Marathon Journey</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="video-gallery">
+            <h2><b>42KM Run Day Video</b></h2>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="42 video 5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video controls>
+                    <source src="42 video 2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="42 video 3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="42 video 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="42 video 4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </section>
+        <section class="video-gallery">
+            <h2><b>42KM Run Day Photo</b></h2>
+            <div class="card">
+                <img src="42km 1.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="42km 2.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="42km 3.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="42km 4.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="PAPA.jpeg" alt="Training 1">
+            </div>
+
+        </section>
+
+        <section class="video-gallery">
+            <h2><b>Final Practice Before 42KM Run</b></h2>
+            <div class="video-card">
+                <video controls>
+                    <source src="training_video_8.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_9.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_10.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card">
+                <img src="final prac 1.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="final prac 2.jpeg" alt="Training 1">
+            </div>
+
+
+
+        </section>
+        <section class="video-gallery">
+            <h2><b>Pre-Shoot & Equipment Collection for Race </b></h2>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="Video 2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="Video 3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="Video 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card">
+                <img src="Pic 1.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="Pic 2.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="Pic 3.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="WhatsApp Image 2025-01-17 at 18.26.59.jpeg" alt="Training 1">
+            </div>
+
+
+
+        </section>
+
+        <!-- Photos Section -->
+        <section class="gallery">
+            <h2>Marathon Training Journey - More Photos</h2>
+            <div class="card">
+                <img src="training1.jpeg" alt="Training 1">
+            </div>
+            <div class="card">
+                <img src="training 2.jpeg" alt="Training 2">
+            </div>
+            <div class="card">
+                <img src="dinal prac 3.jpeg" alt="Training 1">
+            </div>
+
+            <div class="card">
+                <img src="training 6.jpeg" alt="Training 5">
+            </div>
+            <div class="card">
+                <img src="training 4.jpeg" alt="Training 4">
+            </div>
+            <div class="card">
+                <img src="training 5.jpeg" alt="Training 5">
+            </div>
+
+            <div class="card">
+                <img src="training 7.jpeg" alt="Training 5">
+            </div>
+            <div class="card">
+                <img src="training 3.jpeg" alt="Training 3">
+            </div>
+
+            <div class="card">
+                <img src="training 9.jpeg" alt="Training 5">
+            </div>
+            <div class="card">
+                <img src="training 11.jpeg" alt="Training 5">
+            </div>
+            <div class="card">
+                <img src="training 12.jpeg" alt="Training 5">
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section class="video-gallery">
+            <h2>Training and After Run Videos</h2>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controlss>
+                    <source src="training_video_4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_6.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video id="video1" controls>
+                    <source src="training_video_7.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Marathon Journey. Designed with ❤️ for Dad.</p>
+    </footer>
+    <script>
+        // Get all the video elements
+        const videos = document.querySelectorAll("video");
+
+        // Loop through each video element and add event listeners
+        videos.forEach(video => {
+            // Listen for fullscreen change event
+            video.addEventListener('fullscreenchange', function () {
+                if (document.fullscreenElement === video) {
+                    // When the video enters full-screen mode
+                    video.style.objectFit = 'contain';
+                } else {
+                    // When the video exits full-screen mode
+                    video.style.objectFit = 'cover';
+                }
+            });
+
+            // For Safari and other browsers that use webkit prefixes
+            video.addEventListener('webkitfullscreenchange', function () {
+                if (document.webkitFullscreenElement === video) {
+                    video.style.objectFit = 'contain';
+                } else {
+                    video.style.objectFit = 'cover';
+                }
+            });
+
+            // Make sure the video element can be fullscreened
+            video.addEventListener('click', function () {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { // Safari
+                    video.webkitRequestFullscreen();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

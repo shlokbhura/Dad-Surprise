@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Marathon Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff7e5f;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        section {
+            margin: 40px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff7e5f;
+            margin: 10px auto 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right,#e77356, #eea873);
+            color: white; /* Light grey background on hover */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 80%;
+            max-width: 400px;
+        }
+        .modal h3 {
+            margin: 0 0 10px;
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .modal-buttons button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .modal-buttons button:hover {
+            background-color: #feb47b;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Achievements - Marathon Journey</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="achievements">
+            <h2>Achievements & Records</h2>
+            <div class="card" onclick="openModal('modal1')">
+                <h3>Race 1 - Navy Half Marathon 2019 - 21 KM</h3>
+                <p>Completed in 2 hours and 23 minutes!</p>
+            </div>
+            <!-- Card 1 -->
+            <div class="card" onclick="openModal('modal2')">
+                <h3>Race 2 - Matheran Endurathon 2021 - 25 KM</h3>
+                <p>Completed in 3 hours and 28 minutes!</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" onclick="openModal('modal3')">
+                <h3>Race 3 - Tata Marathon 2023 - 21 KM</h3>
+                <p>Completed in 2 hours and 4 minutes!</p>
+            </div>
+            <!-- Card 3-->
+            <div class="card" onclick="openModal('modal4')">
+                <h3>Race 4 - Maheshwari Mumbai Marathon 2023 - 10 KM</h3>
+                <p>Completed in 54 minutes!</p>
+            </div>
+            <div class="card" onclick="openModal('modal5')">
+                <h3>Race 5 - Satara 2023 - 21 KM</h3>
+                <p>Completed in 2 hours and 21 minutes!</p>
+            </div>
+            <div class="card" onclick="openModal('modal6')">
+                <h3>Race 6 - Navy Marathon 2023 - 21 KM</h3>
+                <p>Completed in 2 hours and 11 minutes!</p>
+            </div>
+            <div class="card" onclick="openModal('modal7')">
+                <h3>Race 7 - Maheshwari Mumbai Marathon 2024 - 10 KM</h3>
+                <p>Completed in 53 minutes!</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card" onclick="openModal('modal8')">
+                <h3>Race 8 - Satara 2024 - 21 KM</h3>
+                <p>Completed in 2 hours and 20 minutes!</p>
+            </div>
+            <div class="card" onclick="openModal('modal9')">
+                <h3>Race 9 - Tata Marathon 2025 - 42 KM</h3>
+                <p>Completed in 4 hours and 38 minutes!</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal1" class="modal">
+        <h3>Race 1 - Navy Half Marathon 2019 - 21 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('NAVY 2019.jpg')">See Photo</button>
+            <button onclick="viewPhoto('NAVY 2019 2.jpg')">See Photo</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <!-- Modal for Race 1 -->
+    <div id="modal2" class="modal">
+        <h3>Race 2 - Matheran Endurathon 2021 - 25 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('Matheranpic.jpeg')">See Photo</button>
+            <button onclick="viewVideo('Matheran video.mp4')">See Video</button>
+            <button onclick="viewPhoto('Karjat stats 2021.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- Modal for Race 2 -->
+    
+    <!-- Modal for Race 3 -->
+    <div id="modal3" class="modal">
+        <h3>Race 3 - Tata Marathon 2023 - 21 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('Tata pics.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('Tata stats pics.jpeg')">See Pic & Stats</button>
+            <button onclick="viewPhoto('Tata stats.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="modal4" class="modal">
+        <h3>Race 4 - Maheshwari Mumbai Marathon 2023 - 10 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('Maheshwari mandal 2023.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="modal5" class="modal">
+        <h3>Race 5 - Satara 2023 - 21 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('satara 2023.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('satara stats 2023.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="modal6" class="modal">
+        <h3>Race 6 - Navy Marathon 2023 - 21 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('train 21.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('Nanvy stats.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="modal7" class="modal">
+        <h3>Race 7 - Maheshwari Mumbai Marathon 2024 - 10 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('Maheshwari 2024.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('Maheshwari mandal 2024.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <!-- Modal for Race 4 -->
+    <div id="modal8" class="modal">
+        <h3>Race 8 - Satara 2024 - 21 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('satara pic 1.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('satara run.jpeg')">See Stats</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="modal9" class="modal">
+        <h3>Race 9 - Tata Marathon 2025 - 42 KM</h3>
+        <p>What would you like to see?</p>
+        <div class="modal-buttons">
+            <button onclick="viewPhoto('42 pic 1.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('42 pic 2.jpeg')">See Photo</button>
+            <button onclick="viewPhoto('42km.jpeg')">See Stats</button>
+            <button onclick="viewVideo('42 video 1.mp4')">See Video</button>
+            <button onclick="viewVideo('42 video 3.mp4')">See Video</button>
+        </div>
+        <p></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <div id="overlay" class="overlay" onclick="closeModal()"></div>
+
+    <footer>
+        <p>&copy; 2025 Marathon Journey. Designed with ❤️ for Dad.</p>
+    </footer>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function viewPhoto(photoSrc) {
+            window.open(photoSrc, '_blank');
+        }
+
+        function viewVideo(videoSrc) {
+            window.open(videoSrc, '_blank');
+        }
+    </script>
+</body>
+</html>

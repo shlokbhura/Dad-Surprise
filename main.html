@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marathon Journey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff7e5f;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        section {
+            margin: 40px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff7e5f;
+            margin: 10px auto 0;
+        }
+        .messages, .gallery, .milestones, .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+   
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .card p {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        /* Gallery specific styles */
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .card img,
+.gallery img {
+    width: 100%; /* Ensure the image spans the card width */
+    height: 250px; /* Set a fixed height for uniformity */
+    object-fit: contain; /* Maintain the aspect ratio without cropping */
+    border-radius: 10px; /* Optional for rounded corners */
+    background-color: #ffffff; /* Set a background color for padding effect */
+    padding: 10px; /* Add padding for aesthetics */
+}
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+        }
+        .achievements img:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+        }
+        
+        .milestones img:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+        }
+        .messages img:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .navigation-buttons button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #feb47b;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Celebrating Rajeev Bhura's Marathon Journey</h1>
+        <p>An unforgettable journey of 42 kilometers, filled with inspiration and determination!</p>
+    </header>
+
+    <nav>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="main.html">Home</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="milestones.html">Milestones</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="messages" class="messages">
+            <h2>Messages from Family & Friends</h2>
+            <div class="card">
+                <img src="Shobha.jpeg" alt="Family Picture">
+                <p>"Your determination inspires us every day! Congratulations!"</p>
+            </div>
+            <div class="card">
+                <img src="Dadi.jpeg" alt="Friend's Picture">
+                <p>"You've conquered 42km! We're so proud of you!"</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery" >
+            <h2>Marathon Training Journey</h2>
+            <div class="card">
+                <img src="training1.jpeg" alt="Training">
+                <p>Early morning training session.</p>
+            </div>
+            <div class="card">
+                <img src="training 6.jpeg" alt="Running Group">
+                <p>Group run during the preparation.</p>
+            </div>
+
+        </section>
+
+        <section id="milestones" class="milestones">
+            <h2>Key Milestones</h2>
+            <div class="card">
+                <h3>First 5km</h3>
+                <img src="5km.jpeg" alt="10km">
+                <p>Achieved in 33minutes!</p>
+                <p>Date : 14th Octobor, 2020</p>
+            </div>
+            <div class="card">
+                <h3>First Half Marathon</h3>
+                <img src="21km.jpeg" alt="Half Marathon">
+                <p>Completed in 2 hours 11 minutes!</p>
+                <p>Date : 29th November, 2020</p>
+            </div>
+        </section>
+
+        <section id="achievements" class="achievements">
+            <h2>Achievements & Records</h2>
+            <div class="card">
+              <h3>Satara Run 2024</h3>
+              <img src="satara pic 1.jpeg" alt="Half Marathon">
+              <p>Half Marathon: 2 hours 20 minutes</p>
+          </div>
+            <div class="card">
+              <h3>Best Time</h3>
+              <img src="train 21.jpeg" alt="Half Marathon">
+              <p>Half Marathon: 2 hours 4 minutes</p>
+          </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Celebrating Marathon Journey. Designed with ❤️ for Dad.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

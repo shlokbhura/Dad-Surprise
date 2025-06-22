@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajeev's Marathon Achievement</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.6), rgba(255, 193, 7, 0.6));
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #ff7e5f; /* Color change on hover */
+            transform: scale(1.1); /* Slight scale effect */
+        }
+
+        /* Container for the content */
+        /* Container for the content */
+          .container {
+    text-align: center;
+    max-width: 800px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s forwards 0.5s; /* Fade in with upward motion */
+     /* Added margin to push content below the nav */
+}
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Quote styling */
+        .quote {
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s; /* Fade in for the quote */
+        }
+
+        .quote-author {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #f8f9fa;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1.5s; /* Fade in for the author */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Image styles */
+        .image-container {
+            position: relative;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s; /* Fade in for the image */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Button styling */
+        .next-btn {
+            padding: 15px 25px;
+            font-size: 1.3rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s; /* Fade in for the button */
+        }
+
+        .next-btn:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        .next-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .quote {
+                font-size: 1.4rem;
+            }
+
+            .next-btn {
+                font-size: 1.2rem;
+                padding: 12px 20px;
+            }
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="Bhaag Milkha Bhaag (From Bhaag Milkha Bhaag) (Rock Version).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+   
+    <div class="container">
+        <!-- Image of Rajeev Blur -->
+        <div class="image-container">
+            <img src="PAPA.jpeg" alt="Rajeev Blur">
+        </div>
+
+        <!-- Personalized Quote about Rajeev completing the marathon -->
+        <p class="quote">"Completing the 42km marathon is a testament to your incredible perseverance, strength, and determination. You've pushed your limits and inspired everyone around you!"</p>
+        <p class="quote-author">- A tribute to Rajeev Bhura</p>
+
+        <!-- Next button to go to the home page -->
+        <button class="next-btn" onclick="window.location.href = 'main.html';">Next</button>
+    </div>
+
+    <script>   const audio = document.getElementById('background-audio');
+
+        // Ensure autoplay works by trying to play on load
+        window.addEventListener('load', () => {
+            audio.play().catch(error => {
+                console.error("Autoplay failed:", error);
+                // Inform the user or retry after user interaction
+                document.addEventListener('click', () => {
+                    audio.play().catch(err => console.error("Playback still blocked:", err));
+                });
+            });
+        });
+    
+    // Start the audio again</script>
+</body>
+</html>

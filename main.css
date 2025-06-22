@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  header {
+    background: #ff6f61;
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    color: #ff6f61;
+    margin-top: 20px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  main {
+    padding: 50px 20px;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .message-section .messages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .message {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .gallery-item {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .videos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .video-item {
+    width: 45%;
+    text-align: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #e55e4d;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    width: 100%;
+  }
+  

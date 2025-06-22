@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Marathon Journey</title>
+    <style>
+  .special-card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    width: 280px; /* Unique width for special cards */
+    height: 800px; /* Unique height for special cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.special-card:hover {
+    transform: scale(1.05);
+}
+
+.hidden-content {
+    width: 240px; /* Match special-card width */
+    height: 800px; /* Match special-card height */
+    background: transparent;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.hidden-content img {
+    width: 100%; /* Consistent width */
+    height: 300px; /* Ensure image height fits within the special card */
+    border-radius: 10px;
+}
+
+.hidden-content p {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.hidden-content .video-button {
+    margin-top: 10px;
+}
+
+/* Special overlay remains unchanged */
+.special-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+}
+
+        /* Include the same styles as the main page */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff7e5f;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        section {
+            margin: 40px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ff7e5f;
+            margin: 10px auto 0;
+        }
+        .messages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid #ddd;
+        }
+        .card p {
+            margin: 10px 0;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+        .card p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .navigation-buttons button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #feb47b;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff7e5f;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal video {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .video-button {
+            background: linear-gradient(45deg, #6a11cb, #2575fc); /* Attractive gradient */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .video-button:hover {
+            background: linear-gradient(45deg, #2575fc, #6a11cb); /* Reverse gradient on hover */
+            transform: scale(1.1); /* Slight zoom effect */
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-button:active {
+            transform: scale(1); /* Remove zoom effect on click */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Messages - Marathon Journey</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="messages.html">Messages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="messages">
+            <h2>Messages from Family & Friends</h2>
+            <div class="special-card" id="specialCard" onclick="revealCardContent()">
+                <div class="special-overlay" id="specialOverlay">✨ Special Message ✨</div>
+                <div class="hidden-content" id="cardContent">
+                    <img src="Dada 1.jpeg" alt="Team Picture">
+                    <p>Raju,</p>
+                    <p>Hamesha khush raho, mera ashirwad hamesha tumhare saath hai. Bahut badhai ho!</p>
+                    <button class="video-button" onclick="openModal1()">🎥 Watch Video</button>
+                    <p><b>- Papa</b></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Shobha.jpeg" alt="Friend's Picture">
+                <p>Congratulations 💐💐💐</p>
+                    <p>Your success is a reflection of your dreams your hard work  Your determination and perseverance. You deserve all the Congratulations because ye run aapka dream tha .I think apneaap ko or better janne ka tarika. I know isme aapne bahut socha hoga but aapne is case me dil ki suni and dil hamesha right hota h.isliye ab time aa gaya ki dreams dekho and unhe complete karne ka passion b rakho. Bhagwan aapke her dream pure kare or aapke her hard work me ,me aapki supportive banu. Love you a lot once again many congratulations 😊</p>
+                    <p><b>- Shobha</b></p>
+            </div>
+            <div class="card">
+                <img src="Dadi.jpeg" alt="Team Picture">
+                <p></p>
+                <p>I am proud of your achievement! You're an inspiration!</p>
+                <p></p>
+                <button class="video-button" onclick="openModal()">🎥 Watch Video</button>
+                <p><b>- Mummy</b></p>
+                
+            </div>
+            <div class="modal" id="videoModal">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <video id="videoPlayer" controls>
+                    <source src="training_video_4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card">
+                <img src="shlok.jpeg" alt="Mentor's Picture">
+                <p>Congratulations Papa, on completing your first 42km marathon!</p>
+                    <p> Watching you put in so much effort and commitment into training for this race has been incredibly inspiring.From the early morning runs to carefully following your nutrition plan, and every step you took towards the finish line, you showed me what it truly means to push beyond limits.</p>
+                        <p> I have always admired your determination, but today, you’ve taken it to another level. Completing your first marathon is a monumental achievement, and it fills me with so much pride and admiration. You've not only conquered the race but also proved that with hard work and consistency, no challenge is too big. This is something I will carry with me in everything I do.</p>
+                            <p>  You’ve shown me that if you believe in something and work hard on it, it might take time, but you will surely achieve it. Your journey has taught me the importance of never giving up, no matter how tough things get. You are my role model in more ways than one. I’m genuinely super proud to be your son and to call you my father. Thank you for being an inspiration to me every single day.</p>
+                            <p>I hope one day I achieve something big that will make you as proud of me as I am of you.</p>
+                            <p>I can't wait to run with you. Soon, we’ll be running marathons together! Hopefully within 2 years, when you come to New York for the 42km marathon, I will be right beside you, sitting on the bus for 4 hours and 15 minutes, and after the race, partying and celebrating together 😋. Here's to many more marathons and accomplishments in the future! Your hard work and dedication will always inspire me to aim higher and push myself further. Love You.</p>
+
+                <p><b>- Shlok</b></p>
+            </div>
+            <div class="card">
+                <img src="Kunj.jpeg" alt="Mentor's Picture">
+                <p>Congratulations on achieving this milestone. Way more to go, and I know you’ll keep inspiring us all. I’ve always looked upto you, you’ll always be my hero. Hopefully, I turn out to be 10% of the person you are. Thankyou for being constant source of motivation. I feel the luckiest to have your presence in my life.</p>
+                <p><b>- Kunj</b></p>
+            </div>
+            <div class="card">
+                <img src="pinky.jpeg" alt="Pinky">
+                <p>YOU HAVE ALWAYS BEEN MY FAVOURITE 😍😍,
+
+                    NO DOUBT MERE LIYE AAPKA PYAR KAM HOGAYA HAI OFF LATE,😝😝
+                    
+                    BUT LIFE KI EVERY SITUATION MEIN YOU INSPIRE ME,
+                    
+                    FIR WOH DAILY LIFE HO YA RACE 42 KM,
+                    
+                    YOU WILL FULFILL YOUR DREAM RUN BAHUT ACHE SE,
+                    
+                    FIR AAPKO KOI NAI BACHA SAKTA PARTY DENE SE😃😃
+                    
+                    GOOD LUCK JIJU!!!</p>
+                    
+                    <p>LOTS OF LOVE </p>
+                    <p><b>- Pinky</b></p>
+                    
+            </div>
+            <div class="card">
+                <img src="Neelu.jpeg" alt="Friend's Picture">
+                
+                    <p>To my Superhero...age is just a number for u...your dedication and perseverance motivates us...I'm so glad you know your source to re-energize.. Your one liners gets smile on everyone's face...your plan ABC helps us to optimize time  ..money..and efforts...you have been a guiding light for everyone around you. I have always been your chamach  ..n will continue being that ...love u so proud of u</p>
+                    <p><b>- Neelu</b></p>
+            </div>
+            
+            
+            <div class="card">
+                <img src="Kapi;.jpeg" alt="Mentor's Picture">
+                <p>Congratulations on finishing another Marathon. Very happy to see you getting younger every year😀</p>
+
+                <p> Our families hero number one on all fronts - calm, composed, social, leader, funny, guide, etc. We are proud of you and look up to you and try to imbibe some of your awesome qualities. 
+                    Every parent wishes their kids to be a better version of themselves. Bhai - You definitely lived up to their wishes 👏👏👏👏🎊🎉🎊🎉🎊🎉</p>
+                <p><b>- Kapil</b></p>
+            </div>
+            <div class="card">
+                <img src="Dhruv.jpeg" alt="Mentor's Picture">
+                <p>Hello Raju Bhaiya,  </p>
+
+                <p>  Today, you’ve achieved something truly remarkable, and I couldn’t be prouder of you! Your unwavering dedication and commitment—running not just for yourself but for a noble cause—are nothing short of inspiring. You’ve shown me the power of determination and how it can transform dreams into reality.  </p>
+                    
+                    <p></p>The journey you’ve taken, from where you were to where you stand today, is extraordinary. It’s a testament to your hard work, discipline, and the countless sacrifices you’ve made—giving up Saturday parties, late-night movies, and so much more. Yet, amidst all of this, you’ve managed to strike a perfect balance between family, business, work, and your passion. That takes not just effort but a heart full of love and purpose.  </p>
+                    
+                    <p> But Bhaiya, this is just the beginning. There’s so much more success waiting for you just around the corner, and I know you’ll conquer it all with the same grace and determination. Keep shining and inspiring us all!  </p>
+                    
+                        <p> With admiration and love,  
+                    </p>
+                <p><b>- Dhruv</b></p>
+            </div>
+            
+           
+            <div class="card">
+                <img src="Ashish.jpeg" alt="Mentor's Picture">
+                <p>भैया </p>
+
+                <p> आपकी पहली टाटा मुंबई फुल मैराथन पूरी करने पर ढेर सारी बधाइयाँ! यह आपकी मेहनत, लगन और अदम्य इच्छाशक्ति का परिणाम है। आपके इस अद्भुत प्रयास ने सभी को प्रेरित किया है। इस उपलब्धि पर एक छोटी-सी कविता आपकी ओर समर्पित है:</p>
+                    
+                    <p> दौड़ में हर कदम बढ़ाया,
+                    सपनों को सच कर दिखाया।
+                    मेहनत का हर पल रंग लाया,
+                    जीवन में नया मुकाम पाया।</p>
+                    
+                    <p> रास्ते मुश्किल थे, राह कठिन,
+                    पर हौसलों से बने आप प्रवीण।
+                    हर कदम ने आपकी कहानी लिखी,
+                    जीत की चमक आँखों में दिखी।</p>
+                    
+                    <p> मैराथन नहीं, ये जज़्बातों की जीत है,
+                    हर धड़कन में आज नई रीत है।
+                    आपके इस सफर को नमन करते हैं,
+                    आपसे प्रेरणा हम सभी भरते हैं।</p>
+                    
+                    आपने यह दिखा दिया कि मेहनत और समर्पण से कोई भी लक्ष्य पाना संभव है। हम सभी को आप पर गर्व है! आगे भी इसी तरह नई ऊँचाइयाँ छूते रहें।</p>
+                <p><b>- Ashish</b></p>
+            </div>
+            <div class="card">
+                <img src="Kapi;.jpeg" alt="Mentor's Picture">
+                <p>Dear Raju Bhaiya,</p>
+
+                    <p>I can’t believe this day is here – your first full marathon! Back in 2019, when we started running together just to improve our fitness, the idea of running even 1 kilometer without stopping felt like a challenge. Now, here you are, ready to conquer 42.2 kilometers!</p>
+                    
+                    <p>Your dedication, discipline, and perseverance have been truly inspiring. This marathon is not just about the distance, but a testament to how far you’ve come and the incredible effort you’ve put in over the years.</p>
+                        
+                        <p>Enjoy every moment of this achievement, knowing how proud I am and how much I look up to you. Wishing you strength and success on this amazing milestone. Let’s celebrate this accomplishment together afterward!”</p>
+                        <p><b>- Lokesh</b></p>
+            </div>
+            
+            <div class="card">
+                <img src="Sanjeev.jpg" alt="Mentor's Picture">
+                <p>राजीव,</p>
+                    <p>  तुमने जो मैराथन पूरी की, वो तुम्हारी मेहनत और लगन का प्रमाण है। हर कदम में तुमने अपनी शक्ति को पहचाना और अपने सपने को सच किया। तुम्हारे जीतने से ये साबित होता है कि अगर कोई अपने सपनों में पूरा विश्वास रखे, तो कोई भी मुश्किल आसान हो सकता है। तुम्हें शुभकामनायें!”</p>
+                <p><b>- Sanjeev</b></p>
+            </div>
+            <div class="card">
+                <img src="Sangeeta.jpeg" alt="Mentor's Picture">
+                <p>Rajeev bhai,</p>
+                    <p> Aapne full marathon complete karke sabko ek naya motivation diya hai! Aapki hard work aur dedication dekh ke hum sabko apne goals ke liye inspire hote hain. Aapki journey ka part banne ka mauka mila, yeh bahut hi proud moment hai hum sab ke liye. Keep shining, keep running! 🙌</p>
+                <p><b>- Sangeeta</b></p>
+            </div>
+            <div class="card">
+                <img src="Anil.jpeg" alt="Mentor's Picture">
+                <p>Rajeev Bhaiya </p>
+                    <p> You are the idol of ideals. You continue to evolve and there is so much that uncovers and allures many to have more of you. You are the source that attracts. Your followers are your fans. </p>
+
+                    <p> Congratulations for achieving the unachievable. Shobha Bhabhi will surely get impressed this time...</p>
+                <p><b>- Anil</b></p>
+            </div>
+            <div class="card">
+                <img src="Dhapu.jpeg" alt="Mentor's Picture">
+                <p>May every stride bring you closer to victory, every breath fuel your perseverance, and every heartbeat remind you of the champion within. Wishing you the best as you conquer this ultimate challenge and inspire us all!</p>
+
+                    <p>  Keep running, keep shining, and keep making us proud, Mr. Enthusiastic!</p>
+                <p><b>- Chacha</b></p>
+            </div>
+            <div class="card">
+                <img src="Ram.jpeg" alt="Mentor's Picture">
+                <p> Your hard work and determination has always inspired all of us..I hope one day we match some of your milestones…Congratulations for completing your mission…keep going and keep inspiring</p>
+                <p><b>- Ram</b></p>
+            </div>
+            <div class="card">
+                <img src="Ekta.jpeg" alt="Mentor's Picture">
+                <p>Rajeev Bhaiya, you are truly an inspiration. It is a rare feat to convert your weakness into your biggest strength. You did it.</p>
+                <p><b>- Ekta</b></p>
+            </div>
+            <div class="card">
+                <img src="Ashok.jpeg" alt="Mentor's Picture">
+                <p>Congratulations Rajeev Bhaiyya on conquering the marathon! Your determination and strength have inspired all of us to push beyond our limits. We're so proud of this incredible achievement!</p>
+                <p><b>- Vandana & Ashok</b></p>
+            </div>
+            
+            <div class="card">
+                <img src="Kamya.JPG" alt="Mentor's Picture">
+                <p>Huge congratulations bhaiya  on completing the 42 km marathon !! Its truly a remarkable milestone to achieve. You have pushed your limits and proven your strength. Your hard work, dedication and perseverance through out this year was truly inspiring !! You are inspiration for all of us 🙌🏻🎉🎉</p>
+                <p><b>- Kamya</b></p>
+            </div>
+            <div class="card">
+                <img src="WhatsApp Image 2025-01-19 at 02.47.54.jpeg" alt="Mentor's Picture">
+                <p>Dear Raju bhaiya,
+                </p>
+                <p>Dear Raju bhaiya,
+                    Every day milestone which you are trying to achieve for yourself only, is truly incredible and an inspiration for all of us.
+                    The hobby which you started over the years and developed as a passion and making a new routine for yourself, is just amazing.
+                    A fun loving person blended with so much unique qualities, a decision maker, a leader, a mentor, and a great human being.
+                    I hope bhaiya all your wishes come true.
+                    There is no single day I don’t miss you.
+                    </p>
+                    <p>I love you bhaiya.</p>
+
+                    <p> Take care.
+                        </p>
+                <p><b>- Chaitali & Aditya</b></p>
+            </div>
+            <div class="card">
+                <img src="WhatsApp Image 2025-01-19 at 02.47.42.jpeg" alt="Mentor's Picture">
+                <p>Congratulations on completing the marathon! It’s not just about the finish line, but the journey you’ve taken—one marked by the dedication and perseverance you’ve shown, not only in this race, but in life. Your unwavering commitment to pushing through challenges is truly inspiring. This achievement is a testament to your strength and determination. Enjoy this moment—you’ve earned every step!🎉🎊cheerzz🧿
+                </p>
+                <p><b>- Arun & Gauri</b></p>
+            </div>
+            <div id="modal1" class="modal">
+                <button class="modal-close" onclick="closeModal1()">✖</button>
+                <video controls>
+                    <source src="MAIN VIDEO DADA FINAL.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+       
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Marathon Journey. Designed with ❤️ for Dad.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('videoPlayer');
+
+        function openModal() {
+            modal.style.display = 'flex'; // Show the modal
+            video.src = 'Dadi.MOV'; // Set the video source
+            video.play(); // Start the video
+        }
+        function openModal1() {
+            modal.style.display = 'flex'; // Show the modal
+            video.src = 'MAIN VIDEO DADA FINAL.mp4'; // Set the video source
+            video.play(); // Start the video
+        }
+
+        function closeModal() {
+            modal.style.display = 'none'; // Hide the modal
+            video.pause(); // Pause the video
+            video.src = ''; // Reset the video source to stop playback
+        }
+        function revealCardContent() {
+        const overlay = document.getElementById('specialOverlay');
+        const cardContent = document.getElementById('cardContent');
+        
+        // Hide the special overlay
+        overlay.style.display = 'none';
+        
+        // Show the actual card content
+        cardContent.style.display = 'block';
+
+        // Prevent further clicks on the card from triggering the function
+        document.getElementById('specialCard').onclick = null;
+    }
+
+    function openModal1() {
+        document.getElementById('modal1').style.display = 'flex';
+    }
+
+    function closeModal1() {
+        document.getElementById('modal1').style.display = 'none';
+    }
+
+    </script>
+</body>
+</html>
